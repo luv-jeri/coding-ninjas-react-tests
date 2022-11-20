@@ -1,12 +1,8 @@
 ## Question
 
-> ## Design a counter with + and - buttons to change the value of the counter. Store the value of the counter in the redux store.
+> ### Design a counter with + and - buttons to change the value of the counter. Store the value of the counter in the redux store.
 
 
-## Images
-
-![image](https://i.imgur.com/KYdMKkE.png)
-![image](https://i.imgur.com/1TEkQ63.png)
 
 ## Available Scripts
 
