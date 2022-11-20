@@ -1,12 +1,16 @@
-## Question 
- > Add the following functionalities to the given code:
- > Task-1:Toggle light and dark mode. (You can use Context API or Local Storage)
- > Task-2: Toggle like on the post.
+## Question
 
-## Images 
+> #### Add the following functionalities to the given code:
+>
+> - Task-1:Toggle light and dark mode. (You can use Context API or Local
+>   Storage)
+> - Task-2: Toggle like on the post.
+> - You can visualize the rest from the image that are provided below.
+
+## Images
+
 ![image](https://i.imgur.com/KYdMKkE.png)
 ![image](https://i.imgur.com/1TEkQ63.png)
-
 
 ## Available Scripts
 
