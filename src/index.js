@@ -2,10 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import appReducer from './reducer';
 
-const store = createStore(appReducer);
+const logger = ({ dispatch, getState }) => {
+  return (next) => {
+    return (action) => {
+      console.log(action.type);
+      next(action);
+    };
+  };
+};
+
+const store = createStore(appReducer, applyMiddleware(logger));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,4 +22,3 @@ root.render(
     <App store={store} />
   </React.StrictMode>
 );
-
