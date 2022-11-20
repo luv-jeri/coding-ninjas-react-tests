@@ -4,7 +4,7 @@
 >
 > - One which logs the type of action being done
 > - The other one to stop the action if it is to subtract count
-> # Use arrow functions to create middlewares.
+> ##### Use arrow functions to create middlewares.
 
 ## Available Scripts
 
