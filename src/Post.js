@@ -1,5 +1,15 @@
+import { useState } from 'react';
+
 const Post = (props) => {
-  //Task-2: Toggle "liked-btn" and "like-btn" class when user clicks the like button.
+  // #Task-2: Toggle "liked-btn" and "like-btn" class when user clicks the like button.
+
+  // ? State to store the like status of the post.
+  const [isLiked, setIsLiked] = useState(false);
+
+  // ?  Function to toggle the isLiked state, on Click of the like button.
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+  };
 
   return (
     <div className='post'>
@@ -13,7 +23,11 @@ const Post = (props) => {
         </i>
       </div>
       <p>{props.content}</p>
-      <button className='like-btn'>Like</button>
+
+      {/* Depending on the value of isLiked state, we will render the like button or the liked button.      */}
+      <button onClick={handleLike} className={isLiked ? 'liked-btn' : 'like-btn'}>
+        {isLiked ? 'Liked' : 'Like'}
+      </button>
     </div>
   );
 };
