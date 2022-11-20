@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import { addCount, substractCount } from './actions';
+import { useState } from 'react';
 
-function App() {
+export default function App(props) {
+  const { count } = props.store.getState();
+  const [value, toggle] = useState(0);
+
+  const add = () => {
+    addCount(props.store);
+    toggle((value) => value ^ 1);
+  };
+
+  const substract = () => {
+    substractCount(props.store);
+    toggle((value) => value ^ 1);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Count: {count}</h1>
+      <h2>
+        <button onClick={add}>+</button>
+        <button onClick={substract}>-</button>
+      </h2>
     </div>
   );
 }
-
-export default App;
