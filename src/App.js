@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+import data from './data';
+import Post from './Post';
+
+// Task-1: Create a mechanism for toggling "light-theme" and "dark-theme" classes.
+// After that, head over to ./Post.js
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div>
+        <nav className='nav-bar'>
+          <h1>Home</h1>
+          <button className='btn'>Toggle Theme</button>
+          <br />
+        </nav>
+      </div>
+      <div>
+        {data.map((post) => {
+          return <Post key={post.id} {...post} />;
+        })}
+      </div>
     </div>
   );
 }
