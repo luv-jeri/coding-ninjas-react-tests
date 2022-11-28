@@ -1,20 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 import App from './App';
-import { createStore, applyMiddleware } from 'redux';
-import appReducer from './reducer';
-
-const logger = ({ dispatch, getState }) => {
-  return (next) => {
-    return (action) => {
-      console.log(action.type);
-      next(action);
-    };
-  };
-};
-
-const store = createStore(appReducer, applyMiddleware(logger));
+// Create a store and export default it. Store must have a reducer and a middleware.
+import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
