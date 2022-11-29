@@ -1,3 +1,5 @@
+// Create a redux store here
+
 const countReudcer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
