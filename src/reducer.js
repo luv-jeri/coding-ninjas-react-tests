@@ -1,5 +1,3 @@
-import { createStore } from 'redux';
-
 const countReudcer = (state = { count: 0 }, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -15,10 +13,4 @@ const countReudcer = (state = { count: 0 }, action) => {
   }
 };
 
-const store = createStore(countReudcer);
-
-store.subscribe(() => {
-  console.log(store.getState());
-});
-
-export default store;
+export default countReudcer;
