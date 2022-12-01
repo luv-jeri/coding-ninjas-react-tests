@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useLayoutEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
@@ -6,11 +6,16 @@ const ThemeProvider = ({ children }) => {
   const initialTheme = () => localStorage.getItem('CODING_NINJASA_PROJECT_THEME');
 
   const [theme, setTheme] = useState(initialTheme);
-  const toggleTheme = () => setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+  const toggleTheme = () =>
+    setTheme((theme) => {
+      if (theme === 'light-theme') return 'dark-theme';
+      if (theme === 'dark-theme') return 'light-theme';
+      return 'dark-theme';
+    });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     localStorage.setItem('CODING_NINJASA_PROJECT_THEME', theme);
-    if (theme === 'dark') {
+    if (theme === 'dark-theme') {
       document.documentElement.classList.remove('light-theme');
       document.documentElement.classList.add('dark-theme');
     } else {
