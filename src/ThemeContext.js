@@ -6,6 +6,7 @@ const ThemeProvider = ({ children }) => {
   const initialTheme = () => localStorage.getItem('CODING_NINJASA_PROJECT_THEME');
 
   const [theme, setTheme] = useState(initialTheme);
+  
   const toggleTheme = () =>
     setTheme((theme) => {
       if (theme === 'light-theme') return 'dark-theme';
