@@ -1,51 +1,69 @@
+import React from 'react';
 import './styles.css';
-import data from './data';
-import Post from './Post';
-import { useState, useEffect } from 'react';
 
-// Task-1: Create a mechanism for toggling "light-theme" and "dark-theme" classes.
-// After that, head over to ./Post.js
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      number: 0,
+    };
+  }
 
-function App() {
-  const initialTheme = () => localStorage.getItem('CODING_NINJASA_PROJECT_THEME');
-  const [theme, setTheme] = useState(initialTheme);
-
-  const toggleTheme = () =>
-    setTheme((theme) => {
-      if (theme === 'light-theme') return 'dark-theme';
-      if (theme === 'dark-theme') return 'light-theme';
-      return 'dark-theme';
+  add = () => {
+    this.setState({
+      number: this.state.number + 2,
     });
+  };
 
-  useEffect(() => {
-    localStorage.setItem('CODING_NINJASA_PROJECT_THEME', theme);
-    if (theme === 'dark-theme') {
-      document.documentElement.classList.remove('light-theme');
-      document.documentElement.classList.add('dark-theme');
-    } else {
-      document.documentElement.classList.remove('dark-theme');
-      document.documentElement.classList.add('light-theme');
-    }
-  }, [theme]);
+  double = () => {
+    this.setState({
+      number: this.state.number * 2,
+    });
+  };
 
-  return (
-    <div className='App'>
-      <div>
-        <nav className='nav-bar'>
-          <h1>Home</h1>
-          <button className='btn' onClick={toggleTheme}>
-            Toggle Theme
+  square = () => {
+    this.setState({
+      number: this.state.number * this.state.number,
+    });
+  };
+
+  divide = () => {
+    this.setState({
+      number: this.state.number / 2,
+    });
+  };
+
+  subract = () => {
+    this.setState({
+      number: this.state.number - 2,
+    });
+  };
+
+  render() {
+    const { number } = this.state;
+    return (
+      <div className='container'>
+        <h1>{number}</h1>
+        <div className='buttons-wrapper'>
+          <button id='add' onClick={this.add}>
+            Add 2
           </button>
-          <br />
-        </nav>
+          <button id='square' onClick={this.square}>
+            Square{' '}
+          </button>
+          <button id='double' onClick={this.double}>
+            Double
+          </button>
+          <button id='divide' onClick={this.divide}>
+            Divide by 2
+          </button>
+          <button id='subract' onClick={this.subract}>
+            Subract 2
+          </button>
+        </div>
       </div>
-      <div>
-        {data.map((post) => {
-          return <Post key={post.id} {...post} />;
-        })}
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

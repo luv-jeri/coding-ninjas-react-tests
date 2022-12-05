@@ -1,95 +1,110 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
-import Post from './Post';
-import { ThemeProvider } from './ThemeContext';
 
-const renderApp = () => {
-  render(
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  );
-};
+describe('App component should render with correct UI', () => {
+  it('should render the component', () => {
+    render(<App />);
+    expect(screen.getByText('0')).toBeInTheDocument();
+    const addButton = screen.getByText('Add 2');
+    expect(addButton).toBeInTheDocument();
 
-const getCurrentTheme = () => {
-  const lightTheme = document.documentElement.classList.contains('light-theme');
-  const darkTheme = document.documentElement.classList.contains('dark-theme');
+    const squareButton = screen.getByText('Square');
+    expect(squareButton).toBeInTheDocument();
 
-  if (lightTheme) return 'light-theme';
+    const doubleButton = screen.getByText('Double');
+    expect(doubleButton).toBeInTheDocument();
 
-  if (darkTheme) return 'dark-theme';
+    const divideButton = screen.getByText('Divide by 2');
+    expect(divideButton).toBeInTheDocument();
 
-  return 'light-theme';
-};
-
-describe('Should change the Dark/Light mode', () => {
-  test(`Should change to 'dark-theme'`, () => {
-    renderApp();
-    const button = screen.getByText('Toggle Theme');
-
-    const currentTheme = getCurrentTheme();
-
-    const expectedTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
-
-    fireEvent.click(button);
-
-    let theme =
-      document.body.classList.contains(expectedTheme) ||
-      document.documentElement.classList.contains(expectedTheme);
-
-    expect(theme).toBe(true);
-  });
-
-  test(`Should change back to original theme`, () => {
-    renderApp();
-    const button = screen.getByText('Toggle Theme');
-
-    const currentTheme = getCurrentTheme();
-
-    console.log('currentTheme', currentTheme);
-
-    const expectedTheme = currentTheme === 'light-theme' ? 'dark-theme' : 'light-theme';
-
-    console.log('expectedTheme', expectedTheme);
-
-    fireEvent.click(button);
-
-    let theme =
-      document.body.classList.contains(expectedTheme) ||
-      document.documentElement.classList.contains(expectedTheme);
-
-    expect(theme).toBe(true);
+    const subractButton = screen.getByText('Subract 2');
+    expect(subractButton).toBeInTheDocument();
   });
 });
 
-describe('Should be able to like and unlike a post', () => {
-  const data = {
-    id: 1,
-    title: 'Post 1',
-    date: '29-08-21',
-    length: 11,
-    content: `This is post 1 and it contains ...`,
-    liked: false,
-  };
+describe('Button should have the proper functions', () => {
+  it('should add 2 to the number', () => {
+    render(<App />);
+    const addButton = screen.getByText('Add 2');
+    fireEvent.click(addButton);
+    expect(screen.getByText('2')).toBeInTheDocument();
+  });
 
-  test('Should be able to like a post', () => {
-    render(
-      <ThemeProvider>
-        <Post {...data} />
-      </ThemeProvider>
-    );
+  it('should square the number', () => {
+    render(<App />);
+    const squareButton = screen.getByText('Square');
+    fireEvent.click(squareButton);
+    expect(screen.getByText('0')).toBeInTheDocument();
+  });
 
-    let button = screen.getByRole('button', { name: 'Like' });
-    expect(button).toBeInTheDocument();
+  it('should double the number', () => {
+    render(<App />);
+    const doubleButton = screen.getByText('Double');
+    fireEvent.click(doubleButton);
+    expect(screen.getByText('0')).toBeInTheDocument();
+  });
 
-    fireEvent.click(button);
+  it('should divide the number by 2', () => {
+    render(<App />);
+    const divideButton = screen.getByText('Divide by 2');
+    fireEvent.click(divideButton);
+    expect(screen.getByText('0')).toBeInTheDocument();
+  });
 
-    const likedButton = screen.getByRole('button', { name: 'Liked' });
-    expect(likedButton).toBeInTheDocument();
-    expect(likedButton.classList.contains('liked-btn')).toBe(true);
+  it('should subract 2 from the number', () => {
+    render(<App />);
+    const subractButton = screen.getByText('Subract 2');
+    fireEvent.click(subractButton);
+    expect(screen.getByText('-2')).toBeInTheDocument();
+  });
 
-    button = screen.queryByRole('button', { name: 'Like' });
-    expect(button).not.toBeInTheDocument();
-    expect(likedButton.classList.contains('like-btn')).toBe(false);
+  it('should add 2, square, double, divide by 2, and subract 2 from the number', () => {
+    render(<App />);
+    const addButton = screen.getByText('Add 2');
+    fireEvent.click(addButton);
+    expect(screen.getByText('2')).toBeInTheDocument();
+
+    const squareButton = screen.getByText('Square');
+    fireEvent.click(squareButton);
+    expect(screen.getByText('4')).toBeInTheDocument();
+
+    const doubleButton = screen.getByText('Double');
+    fireEvent.click(doubleButton);
+    expect(screen.getByText('8')).toBeInTheDocument();
+
+    const divideButton = screen.getByText('Divide by 2');
+    fireEvent.click(divideButton);
+    expect(screen.getByText('4')).toBeInTheDocument();
+
+    const subractButton = screen.getByText('Subract 2');
+    fireEvent.click(subractButton);
+    expect(screen.getByText('2')).toBeInTheDocument();
+  })
+
+  it('should square , add 2 , double , add 2 , double ,  divide by 2', () => {
+    render(<App />);
+    const squareButton = screen.getByText('Square');
+    fireEvent.click(squareButton);
+    expect(screen.getByText('0')).toBeInTheDocument();
+
+    const addButton = screen.getByText('Add 2');
+    fireEvent.click(addButton);
+    expect(screen.getByText('2')).toBeInTheDocument();
+
+    const doubleButton = screen.getByText('Double');
+    fireEvent.click(doubleButton);
+    expect(screen.getByText('4')).toBeInTheDocument();
+
+    const addButton2 = screen.getByText('Add 2');
+    fireEvent.click(addButton2);
+    expect(screen.getByText('6')).toBeInTheDocument();
+
+    const doubleButton2 = screen.getByText('Double');
+    fireEvent.click(doubleButton2);
+    expect(screen.getByText('12')).toBeInTheDocument();
+
+    const divideButton = screen.getByText('Divide by 2');
+    fireEvent.click(divideButton);
+    expect(screen.getByText('6')).toBeInTheDocument();
   });
 });

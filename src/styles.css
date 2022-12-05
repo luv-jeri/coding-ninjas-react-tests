@@ -9,72 +9,25 @@
     --clr-primary: #50e3c2;
 }
 
-.dark-theme {
-    --clr-bcg: #1a2744;
-    --clr-font: #f4f4fb;
-    --clr-primary: #73ffe0;
+
+
+.container {
+    height: 30vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-.light-theme {
-    --clr-bcg: #f4f4fb;
-    --clr-font: #282c35;
-    --clr-primary: #50e3c2;
+.buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
 }
 
-body {
-    background: var(--clr-bcg);
-    color: var(--clr-font);
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-bar {
-    padding-bottom: 20px;
-}
-
-.nav-bar h1 {
-    margin: 0px;
-    font-size: 2.5rem;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-}
-
-.post {
-    margin-bottom: 3rem;
-}
-
-.post h2 {
-    color: var(--clr-primary);
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    font-size: 1.75rem;
-}
-
-.btn {
-    background: var(--clr-primary);
-    color: var(--clr-bcg);
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 0.3s linear;
+button {
+    border: none;
+    padding: 10px 20px;
+    background-color: #F17C3C;
+    color: #f4f4fb;
     cursor: pointer;
-    margin: 2px;
-}
-
-.like-btn {
-    color: var(--clr-bcg);
-    background: var(--clr-font);
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    margin: 2px;
-}
-
-.liked-btn {
-    color: #fff;
-    background: #ff8975;
-    padding: 5px;
-    border-radius: 5px;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    margin: 2px;
 }

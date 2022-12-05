@@ -1,16 +1,19 @@
 ## Question
 
-> #### Add the following functionalities to the given code:
+> #### Create a simple calculator with buttons as shown in the image given below:
 >
-> - Task-1:Toggle light and dark mode. (You can use Context API or Local
->   Storage)
-> - Task-2: Toggle like on the post.
-> - You can visualize the rest from the image that are provided below.
+#### You should be able to 
+> add 2, 
+> square, 
+> double, 
+> divide by 2
+> and subtract 2 from a number.
+
 
 ## Images
 
-![image](https://i.imgur.com/KYdMKkE.png)
-![image](https://i.imgur.com/1TEkQ63.png)
+![image](https://i.imgur.com/JkjoOj0.png)
+
 
 ## Available Scripts
 
