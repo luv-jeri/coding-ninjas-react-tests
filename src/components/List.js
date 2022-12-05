@@ -29,9 +29,9 @@ class List extends React.Component {
     // Edit the code given below and pass data as props to listItem and map over data.
     return (
       <div className='List'>
-        <ListItem />
-        <ListItem />
-        <ListItem />
+        {data.map((item) => {
+          return <ListItem key={item.id} data={item} />;
+        })}
       </div>
     );
   }
