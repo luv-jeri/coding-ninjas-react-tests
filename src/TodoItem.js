@@ -18,13 +18,13 @@ class TodoItem extends React.Component {
 
   render() {
     return (
-      <div className='todo-item'>
+      <div data-testid='todo-item' className='todo-item'>
         <input
           type='checkbox'
           checked={this.state.completed}
           onChange={this.handleChange}
         />
-        <label> {this.state.text} </label>
+        <label>{this.state.text}</label>
       </div>
     );
   }
