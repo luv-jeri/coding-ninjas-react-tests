@@ -1,11 +1,16 @@
+import React from 'react';
 import './styles.css';
-import List from './components/List';
+import TodoItem from './TodoItem.js';
 
-export default function App() {
-  return (
-    <div className='App'>
-      <h1>Reach me</h1>
-      <List />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className='todo-list'>
+        <h1>My Daily Goals</h1>
+        <TodoItem />
+      </div>
+    );
+  }
 }
+
+export default App;

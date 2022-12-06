@@ -1,30 +1,9 @@
+# Question
 
-## Question
-
-  
-
-#### Iterate over DataObject using map() method and render the data in a list format using props.
-
->
-
-##### Note: The rendered listItem should be in the below format:
-
-  
-
-
-    <div  class="listItem"  style="background-color:{data.bgColor}">
-    <img  src={data.icon}  alt={data.name}>
-    <a  href={data.link}>{data.name}</a>
-    </div>
-
-  
-  
-
+## Let us move forward with our todo list project. You have been given a list of todos in todoData.js file, and you need to output like this:
 ## Images
 
-  
-
-![image](https://i.imgur.com/YFW4vjq.png)
+![image](https://i.imgur.com/yKXiIuZ.png)
 
   
   
