@@ -7,33 +7,38 @@ class App extends React.Component {
     this.state = {
       number: 0,
     };
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleSubract = this.handleSubract.bind(this);
+    this.handleSquare = this.handleSquare.bind(this);
+    this.handleDouble = this.handleDouble.bind(this);
+    this.handleDivide = this.handleDivide.bind(this);
   }
 
-  add = () => {
+  handleAdd() {
     this.setState({
       number: this.state.number + 2,
     });
-  };
+  }
 
-  double = () => {
+  handleDouble() {
     this.setState({
       number: this.state.number * 2,
     });
-  };
+  }
 
-  square = () => {
+  handleSquare() {
     this.setState({
       number: this.state.number * this.state.number,
     });
-  };
+  }
 
-  divide = () => {
+  handleDivide() {
     this.setState({
       number: this.state.number / 2,
     });
-  };
+  }
 
-  subract = () => {
+  handleSubract = () => {
     this.setState({
       number: this.state.number - 2,
     });
@@ -45,19 +50,19 @@ class App extends React.Component {
       <div className='container'>
         <h1>{number}</h1>
         <div className='buttons-wrapper'>
-          <button id='add' onClick={this.add}>
+          <button id='add' onClick={this.handleAdd}>
             Add 2
           </button>
-          <button id='square' onClick={this.square}>
+          <button id='square' onClick={this.handleSquare}>
             Square{' '}
           </button>
-          <button id='double' onClick={this.double}>
+          <button id='double' onClick={this.handleDouble}>
             Double
           </button>
-          <button id='divide' onClick={this.divide}>
+          <button id='divide' onClick={this.handleDivide}>
             Divide by 2
           </button>
-          <button id='subract' onClick={this.subract}>
+          <button id='subract' onClick={this.handleSubract}>
             Subract 2
           </button>
         </div>
