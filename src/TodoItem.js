@@ -1,12 +1,12 @@
 import React from 'react';
 
 class TodoItem extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      id: 1,
-      text: 'My Task',
-      completed: true,
+      id: this.props.id,
+      text: this.props.text,
+      completed: this.props.completed,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -15,6 +15,7 @@ class TodoItem extends React.Component {
       return { completed: !prevState.completed };
     });
   }
+
   render() {
     return (
       <div className='todo-item'>
