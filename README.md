@@ -1,9 +1,10 @@
 # Question
 
-## Let us move forward with our todo list project. You have been given a list of todos in todoData.js file, and you need to output like this:
+## Create a simple counter and three buttons for increasing, decreasing and resetting the counter by using useState Hook and print the value of count on the console by using useEffect hook.
+
 ## Images
 
-![image](https://i.imgur.com/yKXiIuZ.png)
+![image](https://i.imgur.com/g267FTx.png)
 
   
   
