@@ -57,7 +57,9 @@ describe('Button should have the proper functions', () => {
     fireEvent.click(subractButton);
     expect(screen.getByText('-2')).toBeInTheDocument();
   });
+});
 
+describe('Should perform calculation', () => {
   it('should add 2, square, double, divide by 2, and subract 2 from the number', () => {
     render(<App />);
     const addButton = screen.getByText('Add 2');
@@ -79,7 +81,7 @@ describe('Button should have the proper functions', () => {
     const subractButton = screen.getByText('Subract 2');
     fireEvent.click(subractButton);
     expect(screen.getByText('2')).toBeInTheDocument();
-  })
+  });
 
   it('should square , add 2 , double , add 2 , double ,  divide by 2', () => {
     render(<App />);
